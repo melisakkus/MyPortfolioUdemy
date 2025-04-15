@@ -1,0 +1,52 @@
+﻿@model Message
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Layout/Layout.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Mesaj Güncelleme Sayfası</div>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            <input type="hidden" asp-for="MessageId" />
+
+                            <label>Ad Soyad </label>
+                            <input type="text" asp-for="NameSurname" class="form-control" />
+                            <br />
+                            <label>Konu</label>
+                            <input type="text" asp-for="Subject" class="form-control" />
+                            <br />
+                            <label>Email</label>
+                            <input type="text" asp-for="Email" class="form-control" />
+                            <br />
+                            <label>Mesaj</label>
+                            <textarea rows="4" asp-for="MessageDetail" class="form-control"></textarea>
+                            <br />
+                            <label>Tarih</label>
+                            <input type="text" asp-for="SendDate" class="form-control" />
+                            <br />
+                            <label>Okunma Durumu</label>
+                            <input type="text" asp-for="IsRead" class="form-control" />
+                            <br />
+                            <div class="text-center">
+                                <button class="btn btn-primary btn-sm">Mesaj Bilgileri Güncelle</button>
+                            </div>
+                            <br />
+                        </form>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

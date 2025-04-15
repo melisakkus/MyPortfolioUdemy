@@ -1,0 +1,86 @@
+﻿@model List<Message>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Layout/Layout.cshtml";
+}
+@{
+    int count = 0;
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Mesaj Listesi</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-sub">
+                            Mesajlar ile ilgili işlemleri aşağıdaki panelden yapabilirsiniz.
+                        </div>
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th class="text-center align-middle" scope="col">#</th>
+                                    <th class="text-center align-middle" scope="col">Durum</th>
+                                    <th class="text-center align-middle" scope="col">Ad Soyad</th>
+                                    <th class="text-center align-middle" scope="col">Konu</th>
+                                    <th class="text-center align-middle" scope="col">Email</th>
+                                    <th class="text-center align-middle" scope="col">Tarih</th>
+                                    <th class="text-center align-middle" scope="col">İşlemler</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <td>@count</td>
+
+                                        <td class="text-center align-middle">
+                                            @if (item.IsRead == true)
+                                            {
+                                                <span class="badge badge-success rounded fs-6">Okundu</span>
+                                                <br />
+                                                <a href="/Message/NotRead/@item.MessageId" class="btn btn-outline-danger btn-sm mt-2">
+                                                    <i class="fas fa-times"></i> Okunmadı İşaretle ✗✗
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-danger rounded fs-6">Okunmadı</span>
+                                                <br />
+                                                <a href="/Message/Read/@item.MessageId" class="btn btn-outline-success btn-sm mt-2">
+                                                    <i class="fas fa-check-double"></i> Okundu İşaretle ✔✔
+
+                                                </a>
+                                            }
+                                        </td>
+
+                                        <td class="text-center align-middle">@item.NameSurname</td>
+                                        <td class="text-center align-middle">@item.Subject</td>
+                                        <td class="text-center align-middle">@item.Email</td>
+                                        <td class="text-center align-middle">@item.SendDate.ToShortDateString()</td>
+                                        <td class="text-center align-middle">
+                                            <a href="/Message/OpenMessage/@item.MessageId" class="btn btn-warning btn-sm">Görüntüle</a>
+                                            <a href="/Message/Delete/@item.MessageId" class="btn btn-danger btn-sm">Sil</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <br />
+                        <div class="text-center">
+                            <a href="/Message/Create/" class="btn btn-primary btn-sm">Yeni Mesaj Ekle</a>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

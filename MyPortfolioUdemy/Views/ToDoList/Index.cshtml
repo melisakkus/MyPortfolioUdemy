@@ -1,0 +1,82 @@
+﻿@model List<ToDoList>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Layout/Layout.cshtml";
+}
+@{
+    int count = 0;
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Yapılacaklar Listesi</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-sub">
+                            Yapılacak işlemler ile ilgili işlemleri aşağıdaki panelden yapabilirsiniz.
+                        </div>
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th scope="col">Yapılacak</th>
+                                    <th scope="col">Tarih</th>
+                                    <th class="text-center align-middle" scope="col">Durum</th>
+                                    <th scope="col">Sil</th>
+                                    <th scope="col">Güncelle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <td>@count</td>
+                                        <td>@item.Title</td>
+                                        <td>@item.Date.ToShortDateString()</td>
+
+                                         <td class="text-center align-middle">
+                                            @if (item.Status == true)
+                                            {
+                                                <span class="badge badge-success rounded fs-6">Yapıldı</span>
+                                                <br />
+                                                <a href="/ToDoList/StatusNotDone/@item.ToDoListId" class="btn btn-outline-danger btn-sm mt-2">
+                                                    <i class="fas fa-times"></i> Yapılmadı İşaretle ✗✗
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-danger rounded fs-6">Yapılmadı</span>
+                                                <br />
+                                                <a href="/ToDoList/StatusDone/@item.ToDoListId" class="btn btn-outline-success btn-sm mt-2">
+                                                    <i class="fas fa-check-double"></i> Yapıldı İşaretle ✔✔
+
+                                                </a>
+                                            }
+                                        </td>
+
+                                        <td>
+                                            <a href="/ToDoList/Delete/@item.ToDoListId" class="btn btn-danger btn-sm">Sil</a>
+                                        </td>
+                                        <td>
+                                            <a href="/ToDoList/Update/@item.ToDoListId" class="btn btn-warning btn-sm">Güncelle</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <br />
+                        <div class="text-center">
+                            <a href="/ToDoList/Create/" class="btn btn-primary btn-sm">Yeni Yapılacak Ekle</a>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

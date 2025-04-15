@@ -9,6 +9,7 @@ namespace MyPortfolioUdemy.ViewComponents
         public IViewComponentResult Invoke()
         {
             var values = portfolioContext.Features.ToList();
+            ViewBag.socialMediaList = portfolioContext.SocialMedias.ToList();
             return View(values);
         }
     }

@@ -1,0 +1,65 @@
+﻿@model Message
+@{
+    ViewData["Title"] = "OpenMessage";
+    Layout = "~/Views/Layout/Layout.cshtml";
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-lg">
+                    <div class="card-header text-center bg-info text-white">
+                        <h5 class="card-title">Mesaj Görüntüleme Sayfası</h5>
+                    </div>
+                    <div class="card-body">
+
+                        <!-- Hidden Field for MessageId -->
+                        <input type="hidden" asp-for="MessageId" />
+
+                        <!-- Name and Surname -->
+                        <div class="mb-3">
+                            <label><strong>Ad Soyad:</strong></label>
+                            <div class="form-control-plaintext">@Model.NameSurname</div>
+                        </div>
+
+                        <!-- Subject -->
+                        <div class="mb-3">
+                            <label><strong>Konu:</strong></label>
+                            <div class="form-control-plaintext">@Model.Subject</div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label><strong>Email:</strong></label>
+                            <div class="form-control-plaintext">@Model.Email</div>
+                        </div>
+
+                        <!-- Message Details -->
+                        <div class="mb-3">
+                            <label><strong>Mesaj:</strong></label>
+                            <div class="form-control-plaintext">@Model.MessageDetail</div>
+                        </div>
+
+                        <!-- Date Sent -->
+                        <div class="mb-3">
+                            <label><strong>Tarih:</strong></label>
+                            <div class="form-control-plaintext">@Model.SendDate.ToShortDateString()</div>
+                        </div>
+
+                        <!-- Read Status -->
+                        <div class="mb-3">
+                            <label><strong>Okunma Durumu:</strong></label>
+                            <div class="form-control-plaintext">@((Model.IsRead) ? "Okundu" : "Okunmadı")</div>
+                        </div>
+
+                        <!-- Button to Return -->
+                        <div class="text-center mt-4">
+                            <a href="@Url.Action("Index", "Message")" class="btn btn-secondary btn-sm">Geri Dön</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

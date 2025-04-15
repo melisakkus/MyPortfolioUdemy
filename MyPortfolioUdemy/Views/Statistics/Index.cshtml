@@ -1,0 +1,132 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Layout/Layout.cshtml";
+}
+
+    <div class="content">
+        <div class="container-fluid">
+            <h4 class="page-title">İstatistikler</h4>
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="card card-stats card-warning">
+                        <div class="card-body ">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="icon-big text-center">
+                                    <i class="la la-spinner"></i>
+                                    </div>
+                                </div>
+                                <div class="col-7 d-flex align-items-center">
+                                    <div class="numbers">
+                                        <p class="card-category">Projeler</p>
+                                    <h4 class="card-title">@ViewBag.projectCount</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="col-md-6">
+                <div class="card card-stats card-primary">
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="icon-big text-center">
+                                    <i class="la la-book"></i>
+                                </div>
+                            </div>
+                            <div class="col-7 d-flex align-items-center">
+                                <div class="numbers">
+                                    <p class="card-category">En Son Eklenen Proje</p>
+                                    <h4 class="card-title">"@ViewBag.lastProject"</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="col-md-6">
+                    <div class="card card-stats card-success">
+                        <div class="card-body ">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="icon-big text-center">
+                                    <i class="la la-vimeo-square la-vine la-vk la-volume-down la-volume-off la-volume-up la-warning la-wechat"></i>
+                                    </div>
+                                </div>
+                                <div class="col-7 d-flex align-items-center">
+                                    <div class="numbers">
+                                    <p class="card-category">Gelen Mesajlar</p>
+                                    <h4 class="card-title">@ViewBag.messageCount</h4>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card card-stats card-danger">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="icon-big text-center">
+                                    <i class="la la-mail-reply-all"></i>
+                                    </div>
+                                </div>
+                                <div class="col-7 d-flex align-items-center">
+                                    <div class="numbers">
+                                    <p class="card-category">Okunmayan Mesajlar</p>
+                                    <h4 class="card-title">@ViewBag.notReadMessageCount</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card card-stats card-default">
+                        <div class="card-body ">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="icon-big text-center">
+                                    <i class="la la-star"></i>
+                                    </div>
+                                </div>
+                                <div class="col-7 d-flex align-items-center">
+                                    <div class="numbers">
+                                    <p class="card-category">Yetenekler</p>
+                                    <h4 class="card-title">@ViewBag.skillCount</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="col-md-6">
+                <div class="card card-stats card-info">
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="icon-big text-center">
+                                    <i class="la la-user"></i>
+                                </div>
+                            </div>
+                            <div class="col-7 d-flex align-items-center">
+                                <div class="numbers">
+                                    <p class="card-category">Referanslar</p>
+                                    <h4 class="card-title">@ViewBag.testimonials</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>           
+
+            </div>
+        </div>
+    </div>
