@@ -9,7 +9,7 @@ namespace MyPortfolioUdemy.Controllers
         MyPortfolioContext context = new MyPortfolioContext();
         public IActionResult Index()
         {
-            var values = context.ToDoLists.ToList();
+            var values = context.ToDoLists.OrderByDescending(x=>x.Date).ToList();
             return View(values);
         }
 
